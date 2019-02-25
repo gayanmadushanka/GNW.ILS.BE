@@ -1,0 +1,46 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    DataContext="{Binding Source={StaticResource ViewModelLocator},  Path=ClientListViewModel}"
+    x:Class="GNW.ILS.WPF.Views.ClientListView">
+    <Grid x:Name="MainGrid" Background="{DynamicResource FormBGBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="BtnAddNew" Command="{Binding AddNewClientCommand}" HorizontalAlignment="Left" Width="80" Style="{DynamicResource ToolMenuButtonStyle}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Path Data="M297.02795,166.33698 C308.98694,166.33698 320.79089,176.03198 320.79089,187.98401 L320.79089,273.26703 400.12695,273.26703 C412.09094,273.26703 421.77991,285.07098 421.77991,297.02899 421.77991,308.987 412.09094,320.79102 400.12695,320.79102 L320.79089,320.79102 320.79089,400.12701 C320.79089,412.091 308.98694,421.78003 297.02795,421.78003 285.06995,421.78003 273.26599,412.091 273.26599,400.12701 L273.26599,320.79102 187.98291,320.79102 C176.03101,320.79102 166.33594,308.987 166.33594,297.02899 166.33594,285.07098 176.02991,273.26703 187.98291,273.26703 L273.26599,273.26703 273.26599,187.98401 C273.26599,176.03198 285.06995,166.33698 297.02795,166.33698 z M297.02795,54.036011 C163.021,54.036011 54.034912,162.92102 54.034912,296.92798 54.034912,431.03003 163.021,540.02203 297.02795,540.02203 431.03491,540.02203 540.0199,431.03699 540.0199,296.92798 540.0199,162.92102 431.03491,54.036011 297.02795,54.036011 z M297.02795,0 C460.76794,0 594.05591,133.18799 594.05591,296.927 594.05591,460.76202 460.76794,594.05603 297.02795,594.05603 133.28894,594.05603 0,460.76202 0,296.927 0,133.18799 133.28796,0 297.02795,0 z" Stretch="Fill" Width="22" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center" Fill="#FF4AB258"/>
+                <TextBlock VerticalAlignment="Center" Text="New" Grid.Column="1" Margin="5,0,0,0" />
+            </Grid>
+        </Button>
+        <Grid Grid.Row="1" Margin="5,0,5,5" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid CanUserAddRows="False" x:Name="DgClient" GridLinesVisibility="All" AutoGenerateColumns="False"  ItemsSource="{Binding ClientList}"  IsReadOnly="True" SelectionMode="Single" >
+                <DataGrid.Resources>
+                    <DataTemplate x:Key="EditCustomerDataTemplate">
+                        <Button  Command="{Binding DataContext.EditCustomerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}, Mode=FindAncestor}}" CommandParameter="{Binding}" Style="{DynamicResource EditButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </DataTemplate>
+                    <DataTemplate x:Key="DeleteCustomerDataTemplate">
+                        <Button  Command="{Binding DataContext.DeleteCustomerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}, Mode=FindAncestor}}" CommandParameter="{Binding}" Style="{DynamicResource DeleteButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </DataTemplate>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}"  Header="Name" />
+                    <!--<DataGridTextColumn Binding="{Binding ContactNumber}"  Header="Contact Number"/>
+                    <DataGridTextColumn Binding="{Binding Address}"  Header="Address" Width="*"/>-->
+                    <DataGridTemplateColumn CellTemplate="{StaticResource EditCustomerDataTemplate}"  />
+                    <DataGridTemplateColumn CellTemplate="{StaticResource DeleteCustomerDataTemplate}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid x:Name="GrdManageView" Grid.Column="1" Margin="5,0,0,0" Visibility="Collapsed"/>
+        </Grid>
+    </Grid>
+</UserControl>

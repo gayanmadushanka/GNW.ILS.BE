@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5ABD84A6-7590-40D4-9C64-AED7C881CBFE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GNW.ILS.WPF</RootNamespace>
+    <AssemblyName>GNW.ILS.WPF</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\GNW.ILS.Lib\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking">
+      <HintPath>..\GNW.ILS.Lib\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\GNW.ILS.Lib\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2013.3.1016.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GNW.ILS.Lib\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Helpers\CommonFieldValidations\DateTimeFieldValidation.cs" />
+    <Compile Include="Helpers\CommonFieldValidations\EmailFieldValidation.cs" />
+    <Compile Include="Helpers\CommonFieldValidations\IntegerFieldValidation.cs" />
+    <Compile Include="Helpers\CommonFieldValidations\RequiredFieldValidation.cs" />
+    <Compile Include="Helpers\CommonFieldValidations\TelePhoneNumberFieldValidation.cs" />
+    <Compile Include="Helpers\PasswordHelper.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Messages\LogedInMessage.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Services\ClientService.cs" />
+    <Compile Include="Services\IClientService.cs" />
+    <Compile Include="Services\IMatterService.cs" />
+    <Compile Include="Services\IUserDataService.cs" />
+    <Compile Include="Services\MatterService.cs" />
+    <Compile Include="Services\UserDataService.cs" />
+    <Compile Include="Utility\DelegateCommand.cs" />
+    <Compile Include="Utility\Messenger.cs" />
+    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="ViewModels\ClientListViewModel.cs" />
+    <Compile Include="ViewModels\ClientViewModel.cs" />
+    <Compile Include="ViewModels\DockingViewModel.cs" />
+    <Compile Include="ViewModels\LoggingViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\ClientListView.xaml.cs">
+      <DependentUpon>ClientListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClientView.xaml.cs">
+      <DependentUpon>ClientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Block.xaml.cs">
+      <DependentUpon>Block.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\LoadingAnimation.xaml.cs">
+      <DependentUpon>LoadingAnimation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoggingView.xaml.cs">
+      <DependentUpon>LoggingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\UCToolmnu.xaml.cs">
+      <DependentUpon>UCToolmnu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CompanyMaster.xaml.cs">
+      <DependentUpon>CompanyMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DockingView.xaml.cs">
+      <DependentUpon>DockingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TilesView.xaml.cs">
+      <DependentUpon>TilesView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\Common.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Theme\BrushColors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\CoreStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\Font.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ClientListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ClientView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Shared\Block.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Shared\LoadingAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LoggingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Shared\UCToolmnu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CompanyMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DockingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TilesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Theme\Fonts\segoeui-light.ttf" />
+    <Resource Include="Theme\Fonts\segoeui-reguler.ttf" />
+    <Resource Include="Theme\Fonts\segui-semibold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converter\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controls\MessageControl\MessageControl.csproj">
+      <Project>{5f274919-380b-4774-9580-724af691869c}</Project>
+      <Name>MessageControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNW.ILS.API.Contract\GNW.ILS.API.Contract.csproj">
+      <Project>{59fed9c8-b9b0-48a7-a240-d737b95faccb}</Project>
+      <Name>GNW.ILS.API.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNW.ILS.API\GNW.ILS.API.csproj">
+      <Project>{4b305cdc-9a53-41c3-a560-e7a838f812f6}</Project>
+      <Name>GNW.ILS.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNW.ILS.DAL.Contract\GNW.ILS.DAL.Contract.csproj">
+      <Project>{9530C955-7749-4C4B-A78E-A14AE2650CBF}</Project>
+      <Name>GNW.ILS.DAL.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GNW.ILS.DAL.Entity\GNW.ILS.DAL.Entity.csproj">
+      <Project>{a6fe7da0-06b7-4203-a47e-faa73927332a}</Project>
+      <Name>GNW.ILS.DAL.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\customer_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\item_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\new_customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\new_item.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\new_supplier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\New-company.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\New-Salesman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Payment_Type.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PrevationIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Route-Master.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\store_location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\supplier_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\unit_of_measure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\customer_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\item_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\new_customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\new_item.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\new_supplier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\New-company.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\New-Salesman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\Payment_Type.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\Route-Master.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\store_location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\supplier_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MinIcons\unit_of_measure.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,77 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:telerikDocking="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Docking"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="GNW.ILS.WPF.Views.DockingView"
+    DataContext="{Binding Source={StaticResource ViewModelLocator},  Path=DockingViewModel}"
+    d:DesignWidth="963" d:DesignHeight="650.96" mc:Ignorable="d">
+    <Grid Background="#FF1C6F93">
+        <telerikDocking:RadDocking PreviewShowCompass="RadDocking_PreviewShowCompass" BorderThickness="0" Padding="0" BorderBrush="{x:Null}">
+            <telerikDocking:RadSplitContainer Orientation="Vertical" InitialPosition="DockedLeft" Width="225">
+                <telerikDocking:RadPaneGroup >
+                    <telerikDocking:RadPane Header="Main Manu" Title="Main Manu" CanUserClose="False" CanDockInDocumentHost="False" CanFloat="False" ContextMenuTemplate="{x:Null}">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <StackPanel CanVerticallyScroll="True" Orientation="Vertical" Background="{DynamicResource ManuBGBrush}">
+                                <Button x:Name="BtnClient" Command="{Binding ClientCommand}"  Style="{DynamicResource MainMenuButtonStyle}" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Path Data="M14.369,28.126999 L25.708999,28.126999 C26.460002,28.126999 27.068999,28.733002 27.068999,29.48 L27.068999,65.408001 C27.068999,66.163998 26.460002,66.766003 25.708999,66.766003 L14.369,66.766003 C13.62,66.766003 13.014001,66.164997 13.014001,65.408001 L13.014001,29.48 C13.014001,28.732002 13.619,28.126999 14.369,28.126999 z M60.038997,14.076 L71.376002,14.076 C72.129001,14.076 72.732997,14.677 72.732997,15.432001 L72.732997,65.408001 C72.732997,66.163998 72.129001,66.766003 71.376002,66.766003 L60.038997,66.766003 C59.288997,66.766003 58.685,66.164997 58.685,65.408001 L58.685,15.432001 C58.685,14.677999 59.288997,14.076 60.038997,14.076 z M36.620002,0.023000717 L47.957999,0.023000717 C48.706,0.023000717 49.315001,0.62700081 49.315001,1.382 L49.315001,65.408001 C49.315001,66.163998 48.706,66.766003 47.957999,66.766003 L36.620002,66.766003 C35.870002,66.766003 35.264998,66.164997 35.264998,65.408001 L35.264998,1.382 C35.264998,0.62700081 35.870002,0.023000717 36.620002,0.023000717 z M1.8590002,0 L3.757,0 C4.7840004,0 5.6149998,0.82900047 5.6149998,1.8609991 L5.6149998,74.204998 79.945003,74.204998 C80.975001,74.204998 81.806003,75.037998 81.806003,76.063999 L81.806003,77.960003 C81.806003,78.992001 80.975001,79.816998 79.945003,79.816998 L1.8590002,79.816998 C0.83199978,79.816998 0,78.992001 0,77.960003 L0,1.8609991 C0,0.82900047 0.83100033,0 1.8590002,0 z" Stretch="Fill" Fill="{DynamicResource MainMenuTextBrush}" Width="16" Height="16"/>
+                                        <TextBlock HorizontalAlignment="Left" Text="Client" VerticalAlignment="Top" FontFamily="{DynamicResource BoldFontFamily}" Grid.Column="1" FontSize="{DynamicResource ManuFontSize}" Margin="5,0,0,0" Foreground="White"/>
+                                    </Grid>
+                                </Button>
+                                <Button x:Name="BtnMatter" Command="{Binding MatterCommand}" Style="{DynamicResource MainMenuButtonStyle}"  >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Path Data="M1727.168,1652.457c-11.597,1.99-21.034,10.434-24.299,21.737l-107.419,335.051l-84.403-199.497 c-6.382-15.705-24.286-23.264-39.992-16.883c-6.306,2.563-11.581,7.148-14.996,13.036l-65.22,113.813h-81.845 c-16.951-0.224-30.874,13.334-31.1,30.285c-0.225,16.95,13.335,30.875,30.285,31.099c0.271,0.004,0.543,0.004,0.814,0h99.748 c11.063,0.099,21.323-5.764,26.855-15.345l43.48-75.448l92.074,219.957c6.557,15.633,24.545,22.99,40.178,16.434 c8.288-3.476,14.636-10.409,17.369-18.972l103.584-324.82l83.123,250.648c5.19,16.139,22.48,25.013,38.619,19.822 c7.564-2.433,13.891-7.705,17.648-14.706l58.826-102.306h92.074c16.951,0.224,30.875-13.335,31.1-30.285 c0.225-16.951-13.335-30.875-30.285-31.099c-0.271-0.004-0.543-0.004-0.814,0h-109.978c-11.063-0.099-21.323,5.765-26.854,15.347 l-33.25,58.825l-90.797-276.224c-4.838-14.443-19.535-23.153-34.527-20.463V1652.457z"  
+                                                  Stretch="Fill" Width="16" Height="10" Fill="{DynamicResource MainMenuTextBrush}">
+                                        </Path>
+                                        <TextBlock HorizontalAlignment="Left" Text="Matter" VerticalAlignment="Top" FontFamily="{DynamicResource BoldFontFamily}" Grid.Column="1" FontSize="{DynamicResource ManuFontSize}" Margin="5,0,0,0" Foreground="White"/>
+                                    </Grid>
+                                </Button>
+                                <Button x:Name="BtnClientSearch" Command="{Binding ClientSearchCommand}"  Style="{DynamicResource MainMenuButtonStyle}" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Path Data="M14.369,28.126999 L25.708999,28.126999 C26.460002,28.126999 27.068999,28.733002 27.068999,29.48 L27.068999,65.408001 C27.068999,66.163998 26.460002,66.766003 25.708999,66.766003 L14.369,66.766003 C13.62,66.766003 13.014001,66.164997 13.014001,65.408001 L13.014001,29.48 C13.014001,28.732002 13.619,28.126999 14.369,28.126999 z M60.038997,14.076 L71.376002,14.076 C72.129001,14.076 72.732997,14.677 72.732997,15.432001 L72.732997,65.408001 C72.732997,66.163998 72.129001,66.766003 71.376002,66.766003 L60.038997,66.766003 C59.288997,66.766003 58.685,66.164997 58.685,65.408001 L58.685,15.432001 C58.685,14.677999 59.288997,14.076 60.038997,14.076 z M36.620002,0.023000717 L47.957999,0.023000717 C48.706,0.023000717 49.315001,0.62700081 49.315001,1.382 L49.315001,65.408001 C49.315001,66.163998 48.706,66.766003 47.957999,66.766003 L36.620002,66.766003 C35.870002,66.766003 35.264998,66.164997 35.264998,65.408001 L35.264998,1.382 C35.264998,0.62700081 35.870002,0.023000717 36.620002,0.023000717 z M1.8590002,0 L3.757,0 C4.7840004,0 5.6149998,0.82900047 5.6149998,1.8609991 L5.6149998,74.204998 79.945003,74.204998 C80.975001,74.204998 81.806003,75.037998 81.806003,76.063999 L81.806003,77.960003 C81.806003,78.992001 80.975001,79.816998 79.945003,79.816998 L1.8590002,79.816998 C0.83199978,79.816998 0,78.992001 0,77.960003 L0,1.8609991 C0,0.82900047 0.83100033,0 1.8590002,0 z" Stretch="Fill" Fill="{DynamicResource MainMenuTextBrush}" Width="16" Height="16"/>
+                                        <TextBlock HorizontalAlignment="Left" Text="Client Search" VerticalAlignment="Top" FontFamily="{DynamicResource BoldFontFamily}" Grid.Column="1" FontSize="{DynamicResource ManuFontSize}" Margin="5,0,0,0" Foreground="White"/>
+                                    </Grid>
+                                </Button>
+                                <Button x:Name="BtnMatterSearch" Command="{Binding MatterSearchCommand}" Style="{DynamicResource MainMenuButtonStyle}"  >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Path Data="M1727.168,1652.457c-11.597,1.99-21.034,10.434-24.299,21.737l-107.419,335.051l-84.403-199.497 c-6.382-15.705-24.286-23.264-39.992-16.883c-6.306,2.563-11.581,7.148-14.996,13.036l-65.22,113.813h-81.845 c-16.951-0.224-30.874,13.334-31.1,30.285c-0.225,16.95,13.335,30.875,30.285,31.099c0.271,0.004,0.543,0.004,0.814,0h99.748 c11.063,0.099,21.323-5.764,26.855-15.345l43.48-75.448l92.074,219.957c6.557,15.633,24.545,22.99,40.178,16.434 c8.288-3.476,14.636-10.409,17.369-18.972l103.584-324.82l83.123,250.648c5.19,16.139,22.48,25.013,38.619,19.822 c7.564-2.433,13.891-7.705,17.648-14.706l58.826-102.306h92.074c16.951,0.224,30.875-13.335,31.1-30.285 c0.225-16.951-13.335-30.875-30.285-31.099c-0.271-0.004-0.543-0.004-0.814,0h-109.978c-11.063-0.099-21.323,5.765-26.854,15.347 l-33.25,58.825l-90.797-276.224c-4.838-14.443-19.535-23.153-34.527-20.463V1652.457z"  
+                                                  Stretch="Fill" Width="16" Height="10" Fill="{DynamicResource MainMenuTextBrush}">
+                                        </Path>
+                                        <TextBlock HorizontalAlignment="Left" Text="Matter Search" VerticalAlignment="Top" FontFamily="{DynamicResource BoldFontFamily}" Grid.Column="1" FontSize="{DynamicResource ManuFontSize}" Margin="5,0,0,0" Foreground="White"/>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </telerikDocking:RadPane>
+                </telerikDocking:RadPaneGroup>
+            </telerikDocking:RadSplitContainer>
+            <telerikDocking:RadDocking.DocumentHost>
+                <telerikDocking:RadSplitContainer Orientation="Horizontal">
+                    <telerikDocking:RadPaneGroup>
+                        <telerikDocking:RadPane CanUserClose="False" CanDockInDocumentHost="False" CanFloat="False" Visibility="Collapsed" CanUserPin="False" Height="0">
+                            <Grid x:Name="GdContent"/>
+                        </telerikDocking:RadPane>
+                    </telerikDocking:RadPaneGroup>
+                </telerikDocking:RadSplitContainer>
+            </telerikDocking:RadDocking.DocumentHost>
+        </telerikDocking:RadDocking>
+    </Grid>
+</UserControl>

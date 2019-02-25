@@ -1,0 +1,84 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:commonFieldValidations="clr-namespace:GNW.ILS.WPF.Helpers.CommonFieldValidations"
+    xmlns:shared="clr-namespace:GNW.ILS.WPF.Views.Shared"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    DataContext="{Binding Source={StaticResource ViewModelLocator},  Path=ClientViewModel}"
+    x:Class="GNW.ILS.WPF.Views.ClientView">
+    <Grid x:Name="MainGrid" Background="{DynamicResource FormBGBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <shared:UCToolmnu  x:Name="UCToolmnu1" VerticalAlignment="Top" VerticalContentAlignment="Top" Grid.Row="1"/>
+        <Border Grid.Row="0" Style="{DynamicResource TitleBorderStyle}">
+            <TextBlock x:Name="TitleBar" Text="Client" Style="{DynamicResource TitleTextBlockStyle}" />
+        </Border>
+        <StackPanel Margin="5,10,5,5" Grid.Row="2">
+            <!--<Grid x:Name="Grid_LoginName" Margin="0,0,0,5" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Address" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtAddress" HorizontalAlignment="Left" AcceptsReturn="True"  Height="50" TextWrapping="Wrap" VerticalAlignment="Top" Width="450"  Grid.Column="1" Text="{Binding Tag, Mode=OneWayToSource, RelativeSource={RelativeSource Self}, UpdateSourceTrigger=PropertyChanged}" MaxLength="250" TabIndex="2" GotFocus="txtCommonTextBox_GotFocus" VerticalScrollBarVisibility="Auto"/>
+            </Grid>
+            <Grid x:Name="Grid_PWD" Margin="0,0,0,5" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Contact No" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtTelNo"  HorizontalAlignment="Left"  Height="26"  VerticalAlignment="Top" Width="200"  Grid.Column="1"  MaxLength="10" TabIndex="3" TextChanged="txtTelNo_TextChanged" GotFocus="txtCommonTextBox_GotFocus">
+                    <Binding RelativeSource="{RelativeSource Self}"  Path="Tag" Mode="OneWayToSource" UpdateSourceTrigger="PropertyChanged" >
+                        <Binding.ValidationRules>
+                            <commonFieldValidations:TelePhoneNumberFieldValidation ErrorField="Contact No" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+            </Grid>
+            <Grid x:Name="Grid_FName_Copy1" Margin="0,0,0,5" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Email" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtEmail" HorizontalAlignment="Left"  Height="26"  VerticalAlignment="Top" Width="450"  Grid.Column="1" MaxLength="50" TabIndex="5" GotFocus="txtCommonTextBox_GotFocus">
+                    <Binding RelativeSource="{RelativeSource Self}"  Path="Tag" Mode="OneWayToSource" UpdateSourceTrigger="PropertyChanged" >
+                        <Binding.ValidationRules>
+                            <commonFieldValidations:EmailFieldValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+            </Grid>-->
+            <TabControl>
+                <TabItem Header="Client Details">
+                    <Grid Margin="0,0,0,5" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="TbName" Text="Name" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1"/>
+                        <TextBox x:Name="TxtName" HorizontalAlignment="Left"  Height="26"  Width="450" Grid.Row="1"
+                                 Grid.Column="1" MaxLength="100" TabIndex="1">
+                            <Binding RelativeSource="{RelativeSource Self}"  Path="Tag" Mode="OneWayToSource" UpdateSourceTrigger="PropertyChanged" >
+                                <Binding.ValidationRules>
+                                    <commonFieldValidations:RequiredFieldValidation ErrorField="Company Name" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Matter" />
+            </TabControl>
+        </StackPanel>
+        <ScrollViewer x:Name="scViewer" VerticalScrollBarVisibility="Auto" Grid.Row="3" Margin="5"/>
+    </Grid>
+</UserControl>

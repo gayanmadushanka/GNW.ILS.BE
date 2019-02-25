@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GNW.ILS.WinForms
 {
-    public partial class Form1 : Form
+    public partial class DocumentTranslatorForm : Form
     {
-        public Form1()
+        public DocumentTranslatorForm()
         {
             InitializeComponent();
         }

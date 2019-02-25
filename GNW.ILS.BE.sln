@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{B3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageControl", "Controls\MessageControl\MessageControl.csproj", "{5F274919-380B-4774-9580-724AF691869C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GNW.ILS.Service.DocumentTranslator", "GNW.ILS.Service.DocumentTranslator\GNW.ILS.Service.DocumentTranslator.csproj", "{76D6643F-BAE2-4E60-A140-52EA75E42C34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,14 @@ Global
 		{5F274919-380B-4774-9580-724AF691869C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F274919-380B-4774-9580-724AF691869C}.Release|x86.ActiveCfg = Release|x86
 		{5F274919-380B-4774-9580-724AF691869C}.Release|x86.Build.0 = Release|x86
+		{76D6643F-BAE2-4E60-A140-52EA75E42C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D6643F-BAE2-4E60-A140-52EA75E42C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D6643F-BAE2-4E60-A140-52EA75E42C34}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{76D6643F-BAE2-4E60-A140-52EA75E42C34}.Debug|x86.Build.0 = Debug|Any CPU
+		{76D6643F-BAE2-4E60-A140-52EA75E42C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D6643F-BAE2-4E60-A140-52EA75E42C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D6643F-BAE2-4E60-A140-52EA75E42C34}.Release|x86.ActiveCfg = Release|Any CPU
+		{76D6643F-BAE2-4E60-A140-52EA75E42C34}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
